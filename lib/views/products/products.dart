@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:posupdated/views/utils/dimensions.dart';
 import 'package:posupdated/widgets/custome_input.dart';
 
 class Products extends ConsumerStatefulWidget {
@@ -42,7 +41,7 @@ class _ProductsState extends ConsumerState<Products> {
               height: 10,
             ),
             SizedBox(
-                height: Dimensions.containerheight450,
+                height: 760,
                 child: GridView.builder(
                     itemCount: 10,
                     gridDelegate:
@@ -55,15 +54,56 @@ class _ProductsState extends ConsumerState<Products> {
                         padding: const EdgeInsets.only(left: 2, right: 2),
                         child: Card(
                           child: Column(
+                            mainAxisSize: MainAxisSize.max,
                             children: [
-                              Container(
-                                width: Dimensions.cardwidth,
-                                height: Dimensions.cardheight,
-                                decoration: const BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            "assets/images/testimg.jpg"),
-                                        fit: BoxFit.cover)),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                      context, "/product_details");
+                                },
+                                child: Container(
+                                  height: 100,
+                                  decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "assets/images/testimg.jpg"),
+                                          fit: BoxFit.cover)),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "Headphones",
+                                style: theme.textTheme.bodyLarge!
+                                    .copyWith(color: Colors.orange.shade600),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 10, right: 10),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "Ksh. 3000",
+                                      style: theme.textTheme.bodyLarge!
+                                          .copyWith(
+                                              color: Colors.orange.shade600),
+                                    ),
+                                    IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(
+                                          Icons.shopping_cart,
+                                          color: Colors.orange.shade600,
+                                        ))
+                                  ],
+                                ),
+                              ),
+                              Text(
+                                "30 in stock",
+                                style: theme.textTheme.bodySmall!
+                                    .copyWith(color: Colors.green.shade600),
                               )
                             ],
                           ),

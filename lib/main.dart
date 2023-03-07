@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:posupdated/views/products/product_details.dart';
 import 'package:posupdated/views/products/products.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +20,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Products(),
+      // home: const Products(),
+      initialRoute: "/",
+      routes: {
+        '/': (context) => const Products(),
+        '/product_details': (context) => const ProductDetails()
+      },
     );
   }
 }
