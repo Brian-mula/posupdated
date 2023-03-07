@@ -57,9 +57,13 @@ class _ProductsState extends ConsumerState<Products> {
                           child: Column(
                             children: [
                               Container(
-                                width: 150,
-                                height: 100,
-                                color: Colors.blue,
+                                width: Dimensions.cardwidth,
+                                height: Dimensions.cardheight,
+                                decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            "assets/images/testimg.jpg"),
+                                        fit: BoxFit.cover)),
                               )
                             ],
                           ),
